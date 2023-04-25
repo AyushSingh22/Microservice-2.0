@@ -1,0 +1,6 @@
+/Users/ayusha/Desktop/Microservice-Springboot/Microservice/inventory-service/src/main/java/com/microservices3/inventoryservice/controller/InventoryController.java
+/Users/ayusha/Desktop/Microservice-Springboot/Microservice/inventory-service/src/main/java/com/microservices3/inventoryservice/service/InventoryService.java
+/Users/ayusha/Desktop/Microservice-Springboot/Microservice/inventory-service/src/main/java/com/microservices3/inventoryservice/repository/InventoryRepository.java
+/Users/ayusha/Desktop/Microservice-Springboot/Microservice/inventory-service/src/main/java/com/microservices3/inventoryservice/InventoryServiceApplication.java
+/Users/ayusha/Desktop/Microservice-Springboot/Microservice/inventory-service/src/main/java/com/microservices3/inventoryservice/dto/InventoryResponse.java
+/Users/ayusha/Desktop/Microservice-Springboot/Microservice/inventory-service/src/main/java/com/microservices3/inventoryservice/model/Inventory.java
