@@ -1,0 +1,3 @@
+com/microservice2/orderservice/dto/InventoryResponse.class
+com/microservice2/orderservice/dto/InventoryResponse$InventoryResponseBuilder.class
+com/microservice2/orderservice/config/WebClientConfig.class
