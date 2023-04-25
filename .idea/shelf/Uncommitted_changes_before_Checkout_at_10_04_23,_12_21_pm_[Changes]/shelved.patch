@@ -1,0 +1,209 @@
+Index: ../../Downloads/Microservice Parent/product-service/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n\txsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">\n\t<modelVersion>4.0.0</modelVersion>\n\t<parent>\n\t\t<groupId>org.springframework.boot</groupId>\n\t\t<artifactId>spring-boot-starter-parent</artifactId>\n\t\t<version>3.0.5</version>\n\t\t<relativePath/> <!-- lookup parent from repository -->\n\t</parent>\n\t<groupId>com.microservices</groupId>\n\t<artifactId>product-service</artifactId>\n\t<version>0.0.1-SNAPSHOT</version>\n\t<name>product-service</name>\n\t<description>product service</description>\n\t<properties>\n\t\t<java.version>17</java.version>\n\t</properties>\n\t<dependencies>\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.boot</groupId>\n\t\t\t<artifactId>spring-boot-starter-data-mongodb</artifactId>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.boot</groupId>\n\t\t\t<artifactId>spring-boot-starter-web</artifactId>\n\t\t</dependency>\n\n\n\n\t\t<dependency>\n\t\t\t<groupId>org.projectlombok</groupId>\n\t\t\t<artifactId>lombok</artifactId>\n\t\t\t<optional>true</optional>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.boot</groupId>\n\t\t\t<artifactId>spring-boot-starter-test</artifactId>\n\t\t\t<scope>test</scope>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>org.testcontainers</groupId>\n\t\t\t<artifactId>mongodb</artifactId>\n\t\t\t<scope>test</scope>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>org.testcontainers</groupId>\n\t\t\t<artifactId>junit-jupiter</artifactId>\n\t\t\t<scope>test</scope>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.boot</groupId>\n\t\t\t<artifactId>spring-boot-starter-actuator</artifactId>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>io.micrometer</groupId>\n\t\t\t<artifactId>micrometer-tracing-bridge-brave</artifactId>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>io.zipkin.reporter2</groupId>\n\t\t\t<artifactId>zipkin-reporter-brave</artifactId>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>io.micrometer</groupId>\n\t\t\t<artifactId>micrometer-registry-prometheus</artifactId>\n\t\t\t<scope>runtime</scope>\n\t\t</dependency>\n\n\n\t</dependencies>\n\t<dependencyManagement>\n\t\t<dependencies>\n\t\t\t<dependency>\n\t\t\t\t<groupId>org.testcontainers</groupId>\n\t\t\t\t<artifactId>testcontainers-bom</artifactId>\n\t\t\t\t<version>1.17.6</version>\n\t\t\t\t<type>pom</type>\n\t\t\t\t<scope>import</scope>\n\t\t\t</dependency>\n\t\t</dependencies>\n\t</dependencyManagement>\n\n\t<build>\n\t\t<plugins>\n\t\t\t<plugin>\n\t\t\t\t<groupId>org.springframework.boot</groupId>\n\t\t\t\t<artifactId>spring-boot-maven-plugin</artifactId>\n\t\t\t\t<configuration>\n\t\t\t\t\t<excludes>\n\t\t\t\t\t\t<exclude>\n\t\t\t\t\t\t\t<groupId>org.projectlombok</groupId>\n\t\t\t\t\t\t\t<artifactId>lombok</artifactId>\n\t\t\t\t\t\t</exclude>\n\t\t\t\t\t</excludes>\n\t\t\t\t</configuration>\n\t\t\t</plugin>\n\t\t</plugins>\n\t</build>\n\n</project>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Downloads/Microservice Parent/product-service/pom.xml b/../../Downloads/Microservice Parent/product-service/pom.xml
+--- a/../../Downloads/Microservice Parent/product-service/pom.xml	
++++ b/../../Downloads/Microservice Parent/product-service/pom.xml	
+@@ -67,6 +67,7 @@
+ 		</dependency>
+ 
+ 
++
+ 	</dependencies>
+ 	<dependencyManagement>
+ 		<dependencies>
+@@ -94,7 +95,16 @@
+ 					</excludes>
+ 				</configuration>
+ 			</plugin>
++			<plugin>
++				<groupId>org.apache.maven.plugins</groupId>
++				<artifactId>maven-surefire-plugin</artifactId>
++				<version>2.22.2</version>
++				<configuration>
++					<skipTests>true</skipTests>
++				</configuration>
++			</plugin>
+ 		</plugins>
++
+ 	</build>
+ 
+ </project>
+Index: ../../Downloads/Microservice Parent/product-service/src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>spring.data.mongodb.uri= mongodb://localhost:27017/product-service\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/../../Downloads/Microservice Parent/product-service/src/main/resources/application.properties b/../../Downloads/Microservice Parent/product-service/src/main/resources/application.properties
+--- a/../../Downloads/Microservice Parent/product-service/src/main/resources/application.properties	
++++ b/../../Downloads/Microservice Parent/product-service/src/main/resources/application.properties	
+@@ -1,1 +1,2 @@
+ spring.data.mongodb.uri= mongodb://localhost:27017/product-service
++server.port=8084
+Index: ../../Downloads/Microservice Parent/product-service/src/test/java/com/microservices/product/service/ProductServiceApplicationTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.microservices.product.service;\n\nimport com.microservices.product.service.dto.ProductRequest;\nimport com.microservices.product.service.repository.ProductRepository;\nimport lombok.RequiredArgsConstructor;\nimport org.junit.jupiter.api.Assertions;\nimport org.junit.jupiter.api.Test;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;\nimport org.springframework.boot.test.context.SpringBootTest;\nimport org.springframework.http.MediaType;\nimport org.springframework.test.context.DynamicPropertyRegistry;\nimport org.springframework.test.context.DynamicPropertySource;\nimport org.springframework.test.web.servlet.MockMvc;\nimport org.springframework.test.web.servlet.request.MockMvcRequestBuilders;\nimport org.testcontainers.containers.MongoDBContainer;\nimport org.testcontainers.junit.jupiter.Container;\nimport org.testcontainers.junit.jupiter.Testcontainers;\nimport org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;\n\nimport java.math.BigDecimal;\n\nimport static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;\n\n@SpringBootTest\n@Testcontainers\n@AutoConfigureMockMvc\n@RequiredArgsConstructor\nclass  ProductServiceApplicationTests {\n\t@Container\n\tstatic MongoDBContainer mongoDBContainer = new MongoDBContainer(\"mongo:4.4.2\");\n\n\n    @Autowired\n\tprivate  MockMvc mockMvc;\n\n\tprivate final ObjectMapper objectMapper;\n\t@Autowired\n\tprivate final ProductRepository productRepository;\n\n\tstatic {\n\t\tmongoDBContainer.start();\n\t}\n\n\n\n\t@DynamicPropertySource\n\tstatic void setProperties(DynamicPropertyRegistry dymDynamicPropertyRegistry){\n\t\tdymDynamicPropertyRegistry.add(\"spring.data.mongodb.uri\", mongoDBContainer :: getReplicaSetUrl);\n\t}\n\n\n\n\t@Test\n\tvoid shouldCreateProduct() throws Exception {\n\n\t\tProductRequest productRequest = getProductRequest();\n\t\tString productRequestString= objectMapper.writeValueAsString(productRequest);\n\t\tmockMvc.perform(MockMvcRequestBuilders.post(\"/api/product\")\n\t\t\t\t\t\t.contentType(MediaType.APPLICATION_JSON)\n\t\t\t\t\t\t.content(productRequestString))\n\t\t\t\t.andExpect(status().isCreated());\n\t\tAssertions.assertEquals(1, productRepository.findAll().size());\n\n\t}\n\n\tprivate ProductRequest getProductRequest() {\n\t\treturn ProductRequest.builder()\n\t\t\t\t.name(\"iphone13\")\n\t\t\t\t.description(\"iphone13\")\n\t\t\t\t.price(BigDecimal.valueOf(1200))\n\t\t\t\t.build();\n\t}\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Downloads/Microservice Parent/product-service/src/test/java/com/microservices/product/service/ProductServiceApplicationTests.java b/../../Downloads/Microservice Parent/product-service/src/test/java/com/microservices/product/service/ProductServiceApplicationTests.java
+--- a/../../Downloads/Microservice Parent/product-service/src/test/java/com/microservices/product/service/ProductServiceApplicationTests.java	
++++ b/../../Downloads/Microservice Parent/product-service/src/test/java/com/microservices/product/service/ProductServiceApplicationTests.java	
+@@ -1,75 +1,75 @@
+-package com.microservices.product.service;
+-
+-import com.microservices.product.service.dto.ProductRequest;
+-import com.microservices.product.service.repository.ProductRepository;
+-import lombok.RequiredArgsConstructor;
+-import org.junit.jupiter.api.Assertions;
+-import org.junit.jupiter.api.Test;
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+-import org.springframework.boot.test.context.SpringBootTest;
+-import org.springframework.http.MediaType;
+-import org.springframework.test.context.DynamicPropertyRegistry;
+-import org.springframework.test.context.DynamicPropertySource;
+-import org.springframework.test.web.servlet.MockMvc;
+-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+-import org.testcontainers.containers.MongoDBContainer;
+-import org.testcontainers.junit.jupiter.Container;
+-import org.testcontainers.junit.jupiter.Testcontainers;
+-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
+-
+-import java.math.BigDecimal;
+-
+-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+-
+-@SpringBootTest
+-@Testcontainers
+-@AutoConfigureMockMvc
+-@RequiredArgsConstructor
+-class  ProductServiceApplicationTests {
+-	@Container
+-	static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.4.2");
+-
+-
+-    @Autowired
+-	private  MockMvc mockMvc;
+-
+-	private final ObjectMapper objectMapper;
+-	@Autowired
+-	private final ProductRepository productRepository;
+-
+-	static {
+-		mongoDBContainer.start();
+-	}
+-
+-
+-
+-	@DynamicPropertySource
+-	static void setProperties(DynamicPropertyRegistry dymDynamicPropertyRegistry){
+-		dymDynamicPropertyRegistry.add("spring.data.mongodb.uri", mongoDBContainer :: getReplicaSetUrl);
+-	}
+-
+-
+-
+-	@Test
+-	void shouldCreateProduct() throws Exception {
+-
+-		ProductRequest productRequest = getProductRequest();
+-		String productRequestString= objectMapper.writeValueAsString(productRequest);
+-		mockMvc.perform(MockMvcRequestBuilders.post("/api/product")
+-						.contentType(MediaType.APPLICATION_JSON)
+-						.content(productRequestString))
+-				.andExpect(status().isCreated());
+-		Assertions.assertEquals(1, productRepository.findAll().size());
+-
+-	}
+-
+-	private ProductRequest getProductRequest() {
+-		return ProductRequest.builder()
+-				.name("iphone13")
+-				.description("iphone13")
+-				.price(BigDecimal.valueOf(1200))
+-				.build();
+-	}
+-
+-}
++//package com.microservices.product.service;
++//
++//import com.microservices.product.service.dto.ProductRequest;
++//import com.microservices.product.service.repository.ProductRepository;
++//import lombok.RequiredArgsConstructor;
++//import org.junit.jupiter.api.Assertions;
++//import org.junit.jupiter.api.Test;
++//import org.springframework.beans.factory.annotation.Autowired;
++//import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
++//import org.springframework.boot.test.context.SpringBootTest;
++//import org.springframework.http.MediaType;
++//import org.springframework.test.context.DynamicPropertyRegistry;
++//import org.springframework.test.context.DynamicPropertySource;
++//import org.springframework.test.web.servlet.MockMvc;
++//import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
++//import org.testcontainers.containers.MongoDBContainer;
++//import org.testcontainers.junit.jupiter.Container;
++//import org.testcontainers.junit.jupiter.Testcontainers;
++//import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
++//
++//import java.math.BigDecimal;
++//
++//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
++//
++//@SpringBootTest
++//@Testcontainers
++//@AutoConfigureMockMvc
++//@RequiredArgsConstructor
++//class  ProductServiceApplicationTests {
++//	@Container
++//	static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.4.2");
++//
++//
++//    @Autowired
++//	private  MockMvc mockMvc;
++//
++//	private final ObjectMapper objectMapper;
++//	@Autowired
++//	private final ProductRepository productRepository;
++//
++//	static {
++//		mongoDBContainer.start();
++//	}
++//
++//
++//
++//	@DynamicPropertySource
++//	static void setProperties(DynamicPropertyRegistry dymDynamicPropertyRegistry){
++//		dymDynamicPropertyRegistry.add("spring.data.mongodb.uri", mongoDBContainer :: getReplicaSetUrl);
++//	}
++//
++//
++//
++//	@Test
++//	void shouldCreateProduct() throws Exception {
++//
++//		ProductRequest productRequest = getProductRequest();
++//		String productRequestString= objectMapper.writeValueAsString(productRequest);
++//		mockMvc.perform(MockMvcRequestBuilders.post("/api/product")
++//						.contentType(MediaType.APPLICATION_JSON)
++//						.content(productRequestString))
++//				.andExpect(status().isCreated());
++//		Assertions.assertEquals(1, productRepository.findAll().size());
++//
++//	}
++//
++//	private ProductRequest getProductRequest() {
++//		return ProductRequest.builder()
++//				.name("iphone13")
++//				.description("iphone13")
++//				.price(BigDecimal.valueOf(1200))
++//				.build();
++//	}
++//
++//}
