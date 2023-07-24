@@ -1,4 +1,4 @@
-# E-Commerce Website
+# E-Commerce Microservice
 
 - Engineered a sophisticated application for efficient management of inventory and orders within an e-commerce store.
 - Employed a microservice architecture to facilitate service discovery and seamless communication between different components.
